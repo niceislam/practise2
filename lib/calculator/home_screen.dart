@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController sixthsemcontroller = TextEditingController();
   TextEditingController seventhsemcontroller = TextEditingController();
   TextEditingController eightthsemcontroller = TextEditingController();
-  String myres = "";
+  double myres = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SizedBox(height: 20),
               Text(
-                "CGPA: $myres",
+                "CGPA: ${myres.toStringAsFixed(2)}",
                 style: TextStyle(
                   color: Colors.blue,
                   fontSize: 30,
@@ -124,15 +124,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: WidgetStatePropertyAll(Colors.blue),
                   ),
                   onPressed: () {
-
                     myres =
-                        (int.parse(firstsemcontroller.text) +
-                            int.parse(secondsemcontroller.text))
-                            .toString();
-                    setState(() {
-
-                    });
-                    log("===============$myres");
+                        (double.parse(firstsemcontroller.text) * .05) +
+                        (double.parse(secondsemcontroller.text) * .05) +
+                        (double.parse(thirdsemcontroller.text) * .05) +
+                        (double.parse(forthsemcontroller.text) * .10) +
+                        (double.parse(fifthsemcontroller.text) * .15) +
+                        (double.parse(sixthsemcontroller.text) * .20) +
+                        (double.parse(seventhsemcontroller.text) * .25) +
+                        (double.parse(eightthsemcontroller.text) * .15);
+                    setState(() {});
                   },
                   child: Text(
                     "Watch",
