@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ami_probashi/home_screen.dart';
 import 'calculator/home_screen.dart';
 import 'calculator/temperature.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Temperature(),
+      home: AmiprobashiApp(),
     );
   }
 }
