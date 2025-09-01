@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cgpa_calculator/ami_probashi/Home_body.dart';
 import 'package:flutter/material.dart';
 
 import '../calculator/widget.dart';
@@ -12,9 +13,12 @@ class AmiprobashiApp extends StatefulWidget {
 }
 
 class _AmiprobashiAppState extends State<AmiprobashiApp> {
-  int items = 12;
   int curentIndex = 0;
-  List bottomPage = [];
+  List bottomPage = [
+    HomeBody(),
+    Text("second screen"),
+    Text("3rd screen"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,126 +41,7 @@ class _AmiprobashiAppState extends State<AmiprobashiApp> {
         ],
       ),
       drawer: Drawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15, top: 10),
-              child: Column(
-                children: [
-                  RowServicewidget(title: "Your journey abroad"),
-                  SizedBox(height: 15),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      spacing: 10,
-                      children: [
-                        SlideItemWidget(
-                          title: "BME reglectation",
-                          icon: Icons.edit_document,
-                          subtitle:
-                              "i am a student of Dinajpur Polytechnic Institute , i am studiet at 4th semester",
-                        ),
-                        SlideItemWidget(
-                          title: "BME reglectation",
-                          icon: Icons.edit_document,
-                          subtitle:
-                              "i am a student of Dinajpur Polytechnic Institute , i am studiet at 4th semester",
-                        ),
-                        SlideItemWidget(
-                          title: "BME reglectation",
-                          icon: Icons.edit_document,
-                          subtitle:
-                              "i am a student of Dinajpur Polytechnic Institute , i am studiet at 4th semester",
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15),
-            Divider(thickness: 7, color: Colors.grey.withOpacity(0.4)),
-            SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Column(
-                children: [
-                  RowServicewidget(
-                    title: "Service near me",
-                    viewall: "View all(${items})",
-                  ),
-                  SizedBox(height: 15),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      spacing: 10,
-                      children: [
-                        ServiceItemWidget(
-                          icon: Icons.event_note,
-                          title: "Downloads cards and Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.event_note,
-                          title: "Downloads cards and Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.event_note,
-                          title: "Downloads cards and Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.event_note,
-                          title: "Downloads cards and Certificate",
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                ],
-              ),
-            ),
-            Divider(thickness: 7, color: Colors.grey.withOpacity(0.4)),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Column(
-                children: [
-                  SizedBox(height: 15),
-                  RowServicewidget(
-                    title: "Help center",
-                    viewall: "View all${items}",
-                  ),
-                  SizedBox(height: 15),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      spacing: 8,
-                      children: [
-                        ServiceItemWidget(
-                          icon: Icons.gif_box,
-                          title: "Take a Special Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.gif_box,
-                          title: "Take a Special Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.gif_box,
-                          title: "Take a Special Certificate",
-                        ),
-                        ServiceItemWidget(
-                          icon: Icons.gif_box,
-                          title: "Take a Special Certificate",
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: bottomPage[curentIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 50,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
