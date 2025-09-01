@@ -151,23 +151,19 @@ class RowServicewidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
       children: [
-        Row(
-          children: [
-            Text(
-              "${title}",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
-            Icon(Icons.arrow_forward_ios, color: Colors.grey),
-          ],
-        ),
         Text(
-          textAlign: TextAlign.right,
+          "${title}",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
+        Icon(Icons.arrow_forward_ios, color: Colors.grey),
+        Spacer(),
+        Text(
           "${viewall?? ""}",
           style: TextStyle(
             color: Colors.grey,
@@ -175,6 +171,7 @@ class RowServicewidget extends StatelessWidget {
             fontSize: 18,
           ),
         ),
+        SizedBox(width: 10,)
       ],
     );
   }
